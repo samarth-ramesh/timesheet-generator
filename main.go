@@ -5,7 +5,7 @@ import (
 	"path"
 )
 
-const RootPath = "/tmp/timesheet"
+const RootPath = "/home/srinivas/Documents/work/timesheet"
 const Start = false
 const End = true
 

@@ -6,7 +6,12 @@ import (
 )
 
 func CreateSheet(sheetName string) {
-	_, err := os.Create(path.Join(RootPath, sheetName))
+	pathname := path.Join(RootPath, sheetName)
+	err := os.MkdirAll(RootPath, os.ModeDir)
+	if err != nil {
+		panic(err)
+	}
+	_, err = os.Create(pathname)
 	if err != nil {
 		panic(err)
 	}
