@@ -67,5 +67,5 @@ func GenerateEntryString(timeString string, lastEntryType bool, isFirstItem bool
 	if isFirstItem {
 		startItem = ""
 	}
-	return fmt.Sprintf("%s %s %s", startItem, timeString, endItem)
+	return fmt.Sprintf("%s%s %s", startItem, timeString, endItem)
 }
