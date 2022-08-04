@@ -32,7 +32,7 @@ func ExportSheet(sheetName string) {
 	total := time.Duration(0)
 
 	println("\\Large\\textbf{Time Sheet for " + t.Format("January") + " 2022}\\normalsize \\\\\n" +
-		"\\begin{tabular}{|l|l|l|}\n" +
+		"\\begin{longtable}{|l|l|l|}\n" +
 		"\\hline\n" +
 		"\t&  & \\\\\n" +
 		"\t\\textbf{Date} & \\textbf{Start} & \\textbf{End} \\\\\n" +
@@ -55,16 +55,16 @@ func ExportSheet(sheetName string) {
 		printLatexRow(t1, t2)
 	}
 	printTotalTime(total)
-	println("\\end{tabular}")
+	println("\\end{longtable}")
 }
 
 func printLatexRow(start time.Time, end time.Time) {
 	println("\t& & \\\\")
-	fmt.Printf("\t%s & %s & %s \\\\\n", start.Format("2006-01-02"), start.Format("15:04"), end.Format("15:04"))
+	println(fmt.Sprintf("\t%s & %s & %s \\\\\n", start.Format("2006-01-02"), start.Format("15:04"), end.Format("15:04")))
 	println("\t& & \\\\")
 	println("\\hline")
 }
 
 func printTotalTime(total time.Duration) {
-	fmt.Printf(" & \\textbf{Total} & %s \\\\ \\hline\n", total.String())
+	println(fmt.Sprintf(" & \\textbf{Total} & %s \\\\ \\hline\n", total.String()))
 }
